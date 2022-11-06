@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class Company extends Model
 {
@@ -29,4 +30,12 @@ final class Company extends Model
     protected $casts = [
         'verified' => 'boolean',
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function experiences(): HasMany
+    {
+        return $this->hasMany(Experience::class, 'company_id');
+    }
 }

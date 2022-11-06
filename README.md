@@ -4,6 +4,8 @@
 
 `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'`
 
+`alias a='sail artisan'`
+
 ## Install and Run
 `composer install`
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Experience;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -13,9 +14,13 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        Experience::factory(10)->create([
+            'profile_id' => $user->profile->id,
         ]);
     }
 }

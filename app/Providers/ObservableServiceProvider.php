@@ -15,6 +15,6 @@ final class ObservableServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        User::observe(classes: UserObserver::class);
+        User::observe(UserObserver::class);
     }
 }

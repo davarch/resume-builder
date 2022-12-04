@@ -39,4 +39,12 @@ class Profile extends Model
     {
         return $this->hasMany(Experience::class, 'profile_id');
     }
+
+    /**
+     * @return HasMany
+     */
+    public function shares(): HasMany
+    {
+        return $this->hasMany(Share::class, 'profile_id');
+    }
 }

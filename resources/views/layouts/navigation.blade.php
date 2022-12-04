@@ -18,8 +18,20 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('profile:show')" :active="request()->routeIs('profile')">
+                    <x-nav-link :href="route('profile:show')" :active="request()->routeIs('profile:show')">
                         Profile
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('profile:experiences:show')" :active="request()->routeIs('profile:experiences:show')">
+                        Experience
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('profile:shares:show')" :active="request()->routeIs('profile:shares:show')">
+                        Share
                     </x-nav-link>
                 </div>
             </div>

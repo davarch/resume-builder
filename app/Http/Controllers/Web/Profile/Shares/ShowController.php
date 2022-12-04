@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Web\Profile;
+namespace App\Http\Controllers\Web\Profile\Shares;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-final class ShowController
+final class ShowController extends Controller
 {
     /**
      * @param  Request  $request
@@ -17,8 +18,8 @@ final class ShowController
      */
     public function __invoke(Request $request, Authenticatable $user): View
     {
-        return view('profile.show', [
-            'user' => $user->load(['profile']),
+        return view('profile.shares.show', [
+            'shares' => $user->profile->shares
         ]);
     }
 }

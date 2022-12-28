@@ -15,8 +15,8 @@ final class ShowController extends Controller
     {
         return view("pages.shares.$share->template", [
             'share' => $share->load([
-                'profile.owner', 'profile.experiences.jobTitle', 'profile.experiences.company'
-            ])
+                'profile.owner', 'profile.experiences.jobTitle', 'profile.experiences.company',
+            ]),
         ]);
     }
 }

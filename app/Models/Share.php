@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Concerns\HasToken;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,14 +12,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Share extends Model
 {
-    use HasUuid;
+    use HasToken;
     use HasFactory;
 
     /**
      * @var array<int, string>
      */
     protected $fillable = [
-        'uuid',
         'token',
         'email',
         'template',

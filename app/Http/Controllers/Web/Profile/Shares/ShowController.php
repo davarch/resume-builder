@@ -19,7 +19,7 @@ final class ShowController extends Controller
     public function __invoke(Request $request, Authenticatable $user): View
     {
         return view('profile.shares.show', [
-            'shares' => $user->profile->shares
+            'shares' => $user->profile->shares,
         ]);
     }
 }

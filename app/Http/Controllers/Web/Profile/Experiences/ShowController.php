@@ -8,18 +8,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Infrastructure\Profile\Queries\UserProfileQueryContract;
 
 final class ShowController extends Controller
 {
     /**
      * @param  Request  $request
      * @param  \App\Models\User  $user
+     * @param  UserProfileQueryContract  $query
      * @return View
      */
-    public function __invoke(Request $request, Authenticatable $user): View
-    {
+    public function __invoke(
+        Request $request,
+        Authenticatable $user,
+        UserProfileQueryContract $query
+    ): View {
         return view('profile.experiences.show', [
-            'user' => $user->load(['profile.experiences.jobTitle', 'profile.experiences.company']),
+            'profile' => $query->handle(
+                user: $user
+            )->load(['experiences.jobTitle', 'experiences.company']),
         ]);
     }
 }

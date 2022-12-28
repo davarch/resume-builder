@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         Company::factory(10)->create();
 
         Share::factory(5)->create([
-            'profile_id' => $user->profile->id
+            'profile_id' => $user->profile->id,
         ]);
     }
 }
